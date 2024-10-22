@@ -45,9 +45,11 @@ M.file_encrypt = function()
 		"--encrypt",
 		"--in-place",
 	}
+
 	if sops_age_pub_key ~= nil then
 		table.insert(args, "--age=" .. sops_age_pub_key)
 	end
+	debug(sops_age_pub_key)
 	local command = envs .. binary .. table.concat(args, " ") .. " " .. input_file
 	debug(command)
 
