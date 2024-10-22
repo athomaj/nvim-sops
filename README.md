@@ -59,7 +59,9 @@ nvim-sops comes with the following defaults
         awsProfile = 'AWS_PROFILE',
         ageKeyFile = 'SOPS_AGE_KEY_FILE',
         gcpCredentialsPath = 'GOOGLE_APPLICATION_CREDENTIALS',
-    }
+        pubAgeKey = 'PUBLIC_KEY', -- age public key i added because of an issue with sops agekeyfile env variable
+        encryptRegexp = 'REGEXP_ENCRYPT' -- example of what im using for kube secrets: <'^(data|stringData)$'>
+  }
 }
 ```
 
