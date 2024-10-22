@@ -29,6 +29,6 @@ M.get_sops_general_options = function()
 end
 M.get_sops_age_pub_key = function()
 	local publicKey = vim.g.nvim_sops_defaults_age_public_key
-	return { publicKey }
+	return publicKey
 end
 return M
