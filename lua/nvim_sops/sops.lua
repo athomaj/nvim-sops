@@ -31,4 +31,7 @@ M.get_sops_age_pub_key = function()
 	local publicKey = vim.g.nvim_sops_defaults_age_public_key
 	return publicKey
 end
+M.get_sops_encrypt_regex = function()
+	return vim.g.nvim_sops_default_encrypt_regexp
+end
 return M

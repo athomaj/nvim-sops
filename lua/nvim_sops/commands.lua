@@ -37,6 +37,7 @@ M.file_encrypt = function()
 	local binary = vim.g.nvim_sops_bin_path .. " "
 	local sops_options = sops.get_sops_general_options()
 	local sops_age_pub_key = sops.get_sops_age_pub_key()
+	local sops_encrypt_regexp = sops.get_sops_encrypt_regex()
 	local envs = ""
 	for key, value in pairs(sops_options.sopsGeneralEnvVars) do
 		envs = envs .. key .. "=" .. value .. " "
@@ -49,7 +50,10 @@ M.file_encrypt = function()
 	if sops_age_pub_key ~= nil then
 		table.insert(args, "--age=" .. sops_age_pub_key)
 	end
-	debug(sops_age_pub_key)
+	if sops_encrypt_regexp ~= nil then
+		table.insert(args, "--encrypted-regex=" .. sops_encrypt_regexp)
+	end
+	debug(args)
 	local command = envs .. binary .. table.concat(args, " ") .. " " .. input_file
 	debug(command)
 

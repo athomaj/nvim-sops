@@ -31,7 +31,8 @@ M.setup = function(options)
 		vim.g.nvim_sops_defaults_gcp_credentials_path,
 		os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
 	)
-	vim.g.nvim_sops_defaults_age_public_key = o(options.defaults.pubAgeKey, vim.g.nvim_sops_defaults_age_public_key)
+	vim.g.nvim_sops_defaults_age_public_key = o(options.defaults.pubAgeKey, vim.g.nim_sops_defaults_age_public_key)
+	vim.g.nvim_sops_default_encrypt_regexp = o(option.defaults.encryptRegexp, vim.g.nvim_sops_default_encrypt_regexp)
 	vim.g.__nvim_sops_setup_completed = true
 end
 
